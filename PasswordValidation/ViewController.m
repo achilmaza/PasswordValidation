@@ -29,14 +29,16 @@
 
 
 #import "ViewController.h"
+#import "ValidatePassword.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 -(IBAction)validate:(id)sender;
--(BOOL)checkConsecutiveDuplicateChars:(NSString*)val;
 
 @end
+
+
 
 @implementation ViewController
 
@@ -47,81 +49,18 @@
 
 -(IBAction)validate:(id)sender{
     
-    NSCharacterSet * alphabetic = [ NSCharacterSet characterSetWithCharactersInString:@"#@$%&!"];
-    NSCharacterSet * decimals   = [NSCharacterSet decimalDigitCharacterSet];
-    NSCharacterSet * whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    NSCharacterSet * uppercase  = [NSCharacterSet uppercaseLetterCharacterSet];
-    NSCharacterSet * lowercase  = [NSCharacterSet lowercaseLetterCharacterSet];
-    NSCharacterSet * letters    = [NSCharacterSet letterCharacterSet];
-
     NSString * password = self.passwordField.text;
-    
-    
-    if([password rangeOfCharacterFromSet:decimals].location == NSNotFound){
+    NSString * error = [ValidatePassword validate:password];
         
-        [self alertView:@"Error" withMsg:@"Must have at least one number"];
+    if(error){
+        [self alertView:@"Error" withMsg:error];
     }
-    else if([password rangeOfCharacterFromSet:alphabetic].location == NSNotFound){
+    else{
+        [self alertView:@"" withMsg:@"Valid password"];
+    }
         
-         [self alertView:@"Error" withMsg:@"Must have at least one symbol out of #,@,$,%,&, !"];
-    }
-    else if([password length] < 8 ){
-        
-        [self alertView:@"Error" withMsg:@"Must be at least 8 characters long"];
-    }
-    else if([password length] > 16) {
-        
-        [self alertView:@"Error" withMsg:@"Must be less than 16 characters"];
-    }
-    else if([password rangeOfCharacterFromSet:whitespace].location != NSNotFound){
-        
-        [self alertView:@"Error" withMsg:@"Must not have a space"];
-    }
-    else if([[password substringToIndex:1] rangeOfCharacterFromSet:letters].location == NSNotFound){
-    
-        [self alertView:@"Error" withMsg:@" Must begin with a letter"];
-    }
-    else if([password rangeOfCharacterFromSet:lowercase].location == NSNotFound){
-        
-        [self alertView:@"Error" withMsg:@" Must have at least one lowercase letter"];
-    }
-    else if([password rangeOfCharacterFromSet:uppercase].location == NSNotFound){
-        
-        [self alertView:@"Error" withMsg:@"Must have at least one uppercase letter"];
-    }
-    else if([password isEqualToString:@"A123456a#"] ||
-            [password isEqualToString:@"X123456a@"] ||
-            [password isEqualToString:@"￼a1234&@56a#"] ||
-            [password isEqualToString:@"￼aaaaX1#"]){
-        
-        [self alertView:@"Error" withMsg:@"Invalid password"];
-    }
-    else if([self checkConsecutiveDuplicateChars:password]){
-        
-        [self alertView:@"Error" withMsg:@"No consecutive duplicate characters"];
-    }
-
-    
 }
 
--(BOOL)checkConsecutiveDuplicateChars:(NSString*)val{
-    
-    //get c String
-    int maxLen = 20;
-    char string[maxLen];
-    memset(string, '\0', maxLen);
-    
-    [val getCString:string maxLength:maxLen encoding:NSUTF8StringEncoding];
-
-    int len = (int)strlen(string);
-    for(int i = 0; i<len-1; i++){
-        if(string[i] == string[i+1]){
-           return TRUE;
-        }
-    }
-    
-    return FALSE;
-}
 
 -(void)alertView:(NSString*)title withMsg:(NSString*)msg{
     

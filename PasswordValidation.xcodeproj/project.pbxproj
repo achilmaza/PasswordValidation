@@ -13,6 +13,7 @@
 		7E9B8B001BDAC9FE007EB7EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9B8AFE1BDAC9FE007EB7EC /* Main.storyboard */; };
 		7E9B8B021BDAC9FE007EB7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9B8B011BDAC9FE007EB7EC /* Assets.xcassets */; };
 		7E9B8B051BDAC9FE007EB7EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9B8B031BDAC9FE007EB7EC /* LaunchScreen.storyboard */; };
+		7E9B8B0E1BDADEE5007EB7EC /* ValidatePassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B8B0D1BDADEE5007EB7EC /* ValidatePassword.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		7E9B8B011BDAC9FE007EB7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E9B8B041BDAC9FE007EB7EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E9B8B061BDAC9FE007EB7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E9B8B0C1BDADEE5007EB7EC /* ValidatePassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidatePassword.h; sourceTree = "<group>"; };
+		7E9B8B0D1BDADEE5007EB7EC /* ValidatePassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidatePassword.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				7E9B8AF91BDAC9FE007EB7EC /* AppDelegate.m */,
 				7E9B8AFB1BDAC9FE007EB7EC /* ViewController.h */,
 				7E9B8AFC1BDAC9FE007EB7EC /* ViewController.m */,
+				7E9B8B0C1BDADEE5007EB7EC /* ValidatePassword.h */,
+				7E9B8B0D1BDADEE5007EB7EC /* ValidatePassword.m */,
 				7E9B8AFE1BDAC9FE007EB7EC /* Main.storyboard */,
 				7E9B8B011BDAC9FE007EB7EC /* Assets.xcassets */,
 				7E9B8B031BDAC9FE007EB7EC /* LaunchScreen.storyboard */,
@@ -151,6 +156,7 @@
 			files = (
 				7E9B8AFD1BDAC9FE007EB7EC /* ViewController.m in Sources */,
 				7E9B8AFA1BDAC9FE007EB7EC /* AppDelegate.m in Sources */,
+				7E9B8B0E1BDADEE5007EB7EC /* ValidatePassword.m in Sources */,
 				7E9B8AF71BDAC9FE007EB7EC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +304,7 @@
 				7E9B8B0B1BDAC9FE007EB7EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
